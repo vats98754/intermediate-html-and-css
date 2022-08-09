@@ -1,0 +1,5 @@
+/* Extends across the full width of the viewport, 'breaking out' of the current, margined container */
+.full-width {
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+}
