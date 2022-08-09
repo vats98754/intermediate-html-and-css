@@ -1,0 +1,209 @@
+/* Below are all 8 subproperties of the 'background' property and their default values:
+- background-image: none
+- background-position: 0% 0%
+- background-size: auto auto
+- background-repeat: repeat
+- background-origin: padding-box
+- background-clip: border-box
+- background-attachment: scroll
+- background-color: transparent
+*/
+.background-syntax {
+    /* Using a <background-color> */
+    background: green;
+
+    /* Using a <bg-image> and <repeat-style> */
+    background: url("test.jpg") repeat-y;
+
+    /* Using a <box> and <background-color> */
+    background: border-box red;
+
+    /* A single image, centered and scaled */
+    background: no-repeat center/80% url("../img/image.png");
+
+    /* Global values */
+    background: inherit;
+    background: initial;
+    background: revert;
+    background: revert-layer;
+    background: unset;
+}
+
+div {
+    height: 100vh;
+    width: 100vw;
+}
+
+.green-bg {
+    background: green;
+}
+.radial-bg {
+    background: content-box radial-gradient(crimson, skyblue);
+}
+.repeating-radial-bg {
+    background: repeating-linear-gradient(red, blue);
+}
+.gecko-bg {
+    background: no-repeat url("https://interactive-examples.mdn.mozilla.net/media/examples/lizard.png");
+}
+.repeating-star-bg {
+    background: left 5% / 15% 60% repeat-x url("https://interactive-examples.mdn.mozilla.net/media/examples/star.png");
+}
+.layered-bg {
+    background: center / contain no-repeat url("https://interactive-examples.mdn.mozilla.net/media/examples/firefox-logo.svg"),
+            #eee 35% url("https://interactive-examples.mdn.mozilla.net/media/examples/lizard.png");
+}
+
+/* Below are all 3 subproperties of the 'border' property and their default values:
+- border-width: as each of the properties of the shorthand:
+    - border-top-width: medium
+    - border-right-width: medium
+    - border-bottom-width: medium
+    - border-left-width: medium
+- border-style: as each of the properties of the shorthand:
+    - border-top-style: none
+    - border-right-style: none
+    - border-bottom-style: none
+    - border-left-style: none
+- border-color: as each of the properties of the shorthand:
+    - border-top-color: currentcolor
+    - border-right-color: currentcolor
+    - border-bottom-color: currentcolor
+    - border-left-color: currentcolor
+*/
+.border-syntax {
+    /* style */
+    border: solid;
+
+    /* width | style */
+    border: 2px dotted;
+
+    /* style | color */
+    border: outset #f33;
+
+    /* width | style | color */
+    border: medium dashed green;
+
+    /* Global values */
+    border: inherit;
+    border: initial;
+    border: revert;
+    border: revert-layer;
+    border: unset;
+}
+.solid-border {
+    border: solid;
+}
+.dashed-red-border {
+    border: dashed red;
+}
+.thick-border {
+    border: 1rem solid;
+}
+.double-border {
+    border: thick double #32a1ce;
+}
+.ridge-border {
+    border: 4mm ridge rgba(211, 220, 50, .6);
+}
+/*  Below are all 4 subproperties of the 'border-radius' property and their default values:
+- border-radius: as each of the properties of the shorthand:
+    - border-top-left-radius: 0
+    - border-top-right-radius: 0
+    - border-bottom-right-radius: 0
+    - border-bottom-left-radius: 0
+*/
+.border-radius-syntax {
+    /* The syntax of the first radius allows one to four values */
+    /* Radius is set for all 4 sides */
+    border-radius: 10px;
+
+    /* top-left-and-bottom-right | top-right-and-bottom-left */
+    border-radius: 10px 5%;
+
+    /* top-left | top-right-and-bottom-left | bottom-right */
+    border-radius: 2px 4px 2px;
+
+    /* top-left | top-right | bottom-right | bottom-left */
+    border-radius: 1px 0 3px 4px;
+
+    /* The syntax of the second radius allows one to four values */
+    /* (first radius values) / radius */
+    border-radius: 10px / 20px;
+
+    /* (first radius values) / top-left-and-bottom-right | top-right-and-bottom-left */
+    border-radius: 10px 5% / 20px 30px;
+
+    /* (first radius values) / top-left | top-right-and-bottom-left | bottom-right */
+    border-radius: 10px 5px 2em / 20px 25px 30%;
+
+    /* (first radius values) / top-left | top-right | bottom-right | bottom-left */
+    border-radius: 10px 5% / 20px 25em 30px 35em;
+
+    /* Global values */
+    border-radius: inherit;
+    border-radius: initial;
+    border-radius: revert;
+    border-radius: revert-layer;
+    border-radius: unset;
+}
+button {
+    /* border-radius: 30px; SETS A CONSTANT BORDER RADIUS*/
+    /* border-radius: 25% 10%; SETS TOP-LEFT AND BOTTOM-RIGHT 25% CURVED AND TOP-RIGHT AND BOTTOM-LEFT 10% CURVED */
+    /* border-radius: 10% 30% 50% 70%; TL:10%, TR:30%, BR:50%, BL:70% */
+    /* border-radius: 10% / 50%; Syntax goes 'border-radius: horizontal radius / vertical radius' */
+    /* border-radius: 10px 100px / 120px; Other values can define the horizontal radius to skew it */
+    border: 5px dashed magenta;
+    border-radius: 50% 20% / 10% 40%; /* (first radius values) / top-left-and-bottom-right | top-right-and-bottom-left */
+}
+
+.box-shadow-syntax {
+    /* Keyword values */
+    box-shadow: none;
+
+    /* offset-x | offset-y | color */
+    box-shadow: 60px -16px teal;
+
+    /* offset-x | offset-y | blur-radius | color */
+    box-shadow: 10px 5px 5px black;
+
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+
+    /* inset | offset-x | offset-y | color */
+    box-shadow: inset 5em 1em gold;
+
+    /* Any number of shadows, separated by commas */
+    box-shadow: 3px 3px red, -1em 0 0.4em olive;
+
+    /* Global values */
+    box-shadow: inherit;
+    box-shadow: initial;
+    box-shadow: revert;
+    box-shadow: revert-layer;
+    box-shadow: unset;
+}
+/* Below are all 2 subproperties of the 'overflow' property and their default values:
+- overflow-x: visible
+- overflow-y: visible
+*/
+.overflow-syntax {
+    /* Keyword values */
+    overflow: visible;
+    overflow: hidden;
+    overflow: clip;
+    overflow: scroll;
+    overflow: auto;
+    overflow: hidden visible;
+
+    /* Global values */
+    overflow: inherit;
+    overflow: initial;
+    overflow: revert;
+    overflow: revert-layer;
+    overflow: unset;
+}
+
+.opacity-syntax {
+    opacity: 0.9 /* opacity: 1, by default */
+}
