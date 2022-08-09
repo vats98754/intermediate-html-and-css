@@ -1,0 +1,76 @@
+/* The System Font Stack, which creates many backups for the font family of text, some of which my be unavailable */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+/* Below is one way to import Online Font Libraries */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body {
+    font-family: 'Roboto', sans-serif;
+}
+/* For custom fonts, they need to be downloaded as font files (e.g. WOFF) and imported and defined thru @font-face */
+@font-face {
+    font-family: my-cool-font;
+    src: url(../fonts/the-font-file.woff);
+}
+h1 {
+    font-family: my-cool-font, sans-serif;
+}
+/* If an entire element's text needs to be italicized, font-style can be used; when only part of an element needs 
+to be italicized, that part can be enclosed by the <em> tag */
+h1 {
+    font-style: italic;
+}
+/* Letter spacing can allow concentrated or spread-out letters */
+.wide {
+    font-size: 24px;
+    letter-spacing: .5em;
+}
+  
+.narrow {
+    font-size: 48px;
+    letter-spacing: -.15em;
+}
+/* Line height to add vertical space between consecutive lines; default value is 1 and it is unitless */
+.line-height {
+    line-height: 1.5;
+}
+/* Text capitalization or making it lower/uppercase */
+.transform {
+    text-transform: none;
+    text-transform: capitalize;
+    text-transform: uppercase;
+    text-transform: lowercase;
+    text-transform: full-width;
+    text-transform: full-size-kana;
+}
+/* text-shadow adds a shadow effect to given text, sort of like reverberating it in different colors/sizes/styles */
+.shadow {
+    /* offset-x | offset-y | blur-radius | color */
+    text-shadow: 1px 1px 2px black;
+
+    /* color | offset-x | offset-y | blur-radius */
+    text-shadow: #fc0 1px 0 10px;
+
+    /* offset-x | offset-y | color */
+    text-shadow: 5px 5px #558abb;
+
+    /* color | offset-x | offset-y */
+    text-shadow: white 2px 5px;
+
+    /* offset-x | offset-y
+    /* Use defaults for color and blur-radius */
+    text-shadow: 5px 10px;
+
+    /* Global values */
+    text-shadow: inherit;
+    text-shadow: initial;
+    text-shadow: revert;
+    text-shadow: revert-layer;
+    text-shadow: unset;
+}
+/* Ellipsis can be used within text-overflow to ensure that overflowed text is cut off with (...) */
+.overflowing {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
