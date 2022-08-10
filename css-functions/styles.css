@@ -1,0 +1,77 @@
+.example-functions {
+    color: rgb(0, 42, 255);
+    background: linear-gradient(90deg, blue, red);
+}
+/* calc() used to deal with CSS custom properties/variables and mix CSS units in its calculations */
+:root {
+	--header: 3rem;
+	--footer: 40px;
+	--main: calc(100vh - calc(var(--header) + var(--footer))); /* calc funcs can be nested too */
+}
+body {
+	margin: 0;
+	padding: 0;
+	border: 0px solid transparent;
+	background: #7a7a7a;
+}
+#container {
+	border: 0px solid transparent;
+	height: 100vh;
+	color: white;
+}
+#container > * {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#header {
+	height: var(--header);
+	background: #111111;
+}
+#mainContent {
+	height: var(--main);
+	background: #343434;
+	margin-right: auto;
+	margin-left: auto;
+}
+#footer {
+	height: var(--footer);
+	background: #232323;
+}
+
+/* min() used to retain the original image size if the container is big enough; else it takes the whole container */
+/* max() works similarly but in the opposite way. The max function is most useful when the viewing window is either 
+exceptionally small, or the user increases the content size by using the browser’s zoom feature. */
+#iconHolder {
+	width: min(150px, 100%);
+    width: max(100px, 4em, 50%);
+	height: min(150px, 100%);
+    box-sizing: border-box;
+    border: 6px solid blue;
+}
+#img-container {
+    margin: 10px;
+	display: flex;
+    box-sizing: border-box;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border: 6px solid black;
+	resize: both;
+	overflow: auto;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+/* clamp() is a great way to make elements fluid and responsive. clamp() takes 3 values: 
+    * the smallest value (320px)
+    * the ideal value (80vw)
+    * the largest value (60rem)
+*/
+h1 {
+    font-size: clamp(320px, 80vw, 60rem);
+}
+p {
+    /* Regarded by some UX designers as a satisfying configuration for elem width */
+    width: clamp(45ch, 50%, 75ch);
+}
