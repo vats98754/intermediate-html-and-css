@@ -1,0 +1,189 @@
+/* This rule will only select divs with a class of child */
+main > div {
+    /* uses the child combinator > */
+}
+/* This rule will only select divs with a class of grand-child */
+main > div > div {
+    /* uses the child combinator > */
+}
+
+/* This rule will only select the div with the class child group2 */
+.group1 + div {
+    /* uses the adjacent sibling combinator + */
+}
+/* This rule will only select the div with the class child group3 */
+.group1 + div + div {
+    /* uses the adjacent sibling combinator + */
+}
+
+/* This rule will select all of .group1's siblings - in this case the 2nd and 3rd .child divs */
+.group1 ~ div {
+    /* uses the general sibling combinator ~ */
+}
+
+@import "compass/css3";
+/* ':focus' is the pseudoclass allowing for clicks/tabs to particular elems to trigger some event on that elem */
+:focus {
+    background: pink;
+}
+div {
+    margin: 16px 0;
+}
+textarea {
+    width: 500px;
+}
+button {
+    margin: 16px 0;
+    display: block;
+}
+/* ':hover' is a pseudoclass that will affect anything under the user’s mouse pointer */
+a:hover {
+    color: green;
+    text-decoration: underline overline;
+}
+/* This rule will apply to all links */
+a {
+    text-decoration: underline;
+}
+
+/* This will apply to unvisited links */
+a:link { /* Essentially means a[href], or that the link actually goes somewhere */
+    color: turquoise;
+}
+/* And you guessed it, this applies to all links the user has clicked on */
+a:visited {
+    color: greenyellow;
+}
+a:hover {
+    color: salmon;
+}
+/* the ':active' pseudoclass changes the appearance of a link WHILE it is being activated  */
+a:active {
+    color: palegreen;
+}
+/* :active can also apply to any element, like changing the bg of an elem WHILE it is being clicked */
+h1:active {
+    background-color: aqua;
+}
+/* :root is the Structural Psuedo-class wherein you'll usually place your ‘global’ CSS rules that you want 
+available everywhere - such as your custom properties and CSS variables, or rules such as box-sizing: border-box; */
+:root {
+    background-color: cornflowerblue;
+    padding: 3em;
+}
+/* :first-child and :last-child will match elements that are the first or last sibling */
+.child:first-child {
+    background-color: chartreuse;
+    border-radius: 10%;
+}
+.child:last-child {
+    background-color: palevioletred;
+    border-radius: 20% 10% / 50% 30%;
+}
+/* :empty will match elements that have no children at all */
+/* :only-child will match elements that don’t have any siblings */
+
+/* For a more dynamic approach we can use :nth-child. This is a flexible pseudo-class with a few different uses */
+.child:nth-child(5) {/* Selects the 5th element with class child */}
+.child:nth-child(3n) { /* Selects every 3rd element with class child */}
+.child:nth-child(3n + 3) { /* Selects every 3rd element with class child, beginning with the 3rd */}
+.child:nth-child(even) {/* Selects every even element with class child */}
+
+/* pseudo-elements allow us to affect parts of our HTML that aren’t elements at all. */
+
+/* ::marker allows you to customize the styling of your <li> elements’ bullets or numbers. */
+ol li::marker {
+  color: red;
+  font-weight: bold;
+}
+ul li::marker {
+  font-size: 150%;
+  color: lightgreen;
+  /* content: "🧡 "; Changes the bullet itself */
+}
+body {
+  line-height: 1.4;
+  font-family: system-ui;
+}
+/* Applying "display: list-item;" to any elem allows for it to be treated as a list with ::marker pseudo-element */
+h3 {
+    counter-increment: h3;
+    display: list-item;
+}
+h3::marker {
+    display: list-item;
+    content: "#" counter(h3) " ";
+    color: lightsalmon;
+    font-weight: bold;
+}
+
+p::first-letter {
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: aqua;
+}
+
+textarea::first-line {
+    color: aquamarine;
+}
+
+/* You can change the background color and color of selected text by styling ::selection. */
+p::selection {
+    background: #fff;
+    color: #ff0000;
+}
+
+/* ::before and ::after allow us to add extra elements onto the page with CSS, instead of HTML. 
+Using it to decorate text in various ways is one common use case. */
+.emojify::before {
+    content: '😎 🥸 🤓';
+}
+.emojify::after {
+    content: '🤓 🥸 😎';
+}
+
+/*
+Attribute Selectors
+    * [attribute] - This general selector will select anything where the given attribute exists. 
+        Its value doesn’t matter.
+    * selector[attribute] - Optionally we can combine our attribute selectors with other types of selectors, 
+        such as class or element selectors.
+    * [attribute="value"] - To get really specific, we can use = to match a specific attribute with a specific value.
+*/
+[src] {
+    /* This will target any element that has a src attribute. */
+}
+img[src] {
+    /* This will only target img elements that have a src attribute. */
+}
+.animals[src="puppy.jpg"] {
+    /* This will target elems with class animals and a src attribute that is exactly "puppy.jpg" */
+}
+
+/*
+To match the start, end, or to a substring of the value of an attribute, the following can be used:
+    * [attribute^="value"] - ^= Will match strings from the start.
+    * [attribute$="value"] - $= Will match strings from the end.
+    * [attribute*="value"] - *= The wildcard selector will match anywhere inside the string.
+*/
+[class^='aus'] {
+    /* Classes are attributes too!
+      This will target any class that begins with 'aus':
+      class='austria'
+      class='australia'
+    */
+}
+[src$='.jpg'] {
+    /* This will target any src attribute that ends in '.jpg':
+    src='puppy.jpg'
+    src='kitten.jpg'
+    */
+}
+[for*='ill'] {
+    /* This will target any for attribute that has 'ill' anywhere inside it:
+    for="bill"
+    for="jill"
+    for="silly"
+    for="ill"
+    */
+}

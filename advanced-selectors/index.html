@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <main class="parent">
+        <div class="child group1">
+          <div class="grand-child group1">Child 1</div>
+        </div>
+        <div class="child group2">
+          <div class="grand-child group2">Child 2</div>
+        </div>
+        <div class="child group3">
+          <div class="grand-child group3">Child 3</div>
+        </div>
+    </main>
+    <h1>HTML Methods for Making Things Tab-able</h1>
+    <p>All of the items below are tabbable. The text area and button are tabbable by default, and the divs use two different methods.</p>
+    
+    <textarea tabindex="1">A textarea. Focus states work by default.</textarea>
+    <button tabindex="2">And I'm a button. Again, works by default.</button>
+    <div contenteditable tabindex="3">Divs don't usually have a focus state. But I'm special, because I'm <code>contenteditable</code>.</div>
+    <div tabindex="4">I'm another div, and I have a <code>tabindex</code>. You can't edit me like the div above, but you can tab to me.</div>
+    <textarea tabindex="-1">I can't be tabbed to. This is a terrible idea, generally, but it can be done using tabindex="-1". Notice that (if you click) I still have a focus state, even though you can't tab to me.</textarea>
+    <br>
+    <a href="https://google.com">Go to Google</a>
+
+    <ol>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Corporis aliquam excepturi neque deleniti.</li>
+        <li>Incidunt eos repellendus vitae deserunt!</li>
+    </ol>
+    <ul>
+        <li>Lorem ipsum dolor sit amet.</li>
+        <li>Laborum molestias consequuntur soluta ab.</li>
+        <li>Et veniam suscipit quod qui.</li>
+    </ul>
+
+    <h3>Lorem ipsum dolor sit amet.</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <h3>Itaque sequi eaque earum laboriosam.</h3>
+    <p>Ratione culpa reprehenderit beatae quaerat voluptatibus, debitis iusto?</p>
+    <h3>Laudantium sapiente commodi quidem excepturi!</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+    <div>Let's <span class="emojify">emojify</span> this span!</div>
+</body>
+</html>
