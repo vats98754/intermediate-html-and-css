@@ -1,0 +1,66 @@
+/* 5 main types of element positioning:
+    * Static (default flow of document)
+    * Relative (same as static but can shift elements top,right,bottom,left compared to their static position)
+    * Absolute (forces elems to stay in their place regardless of other elems' positions, allowing for layering)
+    * Fixed (elems stay on the same spot as it appears for user, despite scrolling, ex chat buttons on biz pages)
+    * Sticky (they act like fixed elements once you scroll past them, 'sticking' onto your screen)
+*/
+body {
+    height: 200vh;
+    font-size: 5rem;
+    overflow: scroll;
+}
+
+div {
+    display: block;
+}
+
+.child {
+    padding: 5px;
+}
+
+.parent {
+    background-color: skyblue;
+    padding: 10px;
+}
+
+.child-one {
+    background-color: greenyellow;
+}
+
+.child-two {
+    background-color: red;
+}
+
+.child-three {
+    background-color: magenta;
+}
+
+.parent {
+    /* position: static is the default value for every element */
+    position: relative;
+}
+
+.child-one {
+    /* Places this element atop 'Parent', layering it using its absolute pos
+    position: absolute;
+    top: 0; */
+    
+    /* top/bottom/left/right HAS to be defined; elem stays same pos after scrolled past, until end of parent reached */
+    position:sticky;
+    top: 10px;
+}
+
+.child-two {
+    /* Adds a 20px FROM the left of the viewport relative to its static pos
+    position: relative;
+    left: 20px; */
+}
+
+.child-three {
+     /* Keeps elem visually in the same place on the screen, despite scrolling; top,bottom,left,right can be applied
+    position: fixed;
+    right: 50px; Places it 50px FROM the right of the viewport relative to its static pos
+    bottom: 50px; Places it 50px FROM the bottom of the viewport relative to its static pos 
+    The above imitates a chatbox on business websites, seemingly staying fixed in place on the user's screen */
+}
