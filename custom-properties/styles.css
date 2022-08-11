@@ -1,0 +1,97 @@
+/* Example of using CSS custom properties (CSS variables) using --variable-name, which is case sensitive, unspaced */
+.error-modal {
+    --color-error-text: red;
+    --modal-border: 1px solid black;
+    --modal-font-size: calc(2rem + 5vw);
+    /* The var() function is used to access these CSS variables wherever necessary */
+    color: var(--color-error-text);
+    border: var(--modal-border);
+    font-size: var(--modal-font-size);
+}
+.fallback {
+    --color-text: white;
+    /* var() has an optional second parameter that is used in case the first arg is non-existent/invalid */
+    background-color: var(--undeclared-property, black);
+    color: var(--undeclared-again, var(--color-text, yellow)); /* Multiple fallbacks through nested var() */
+}
+/* CSS variables have a scope too: only the selector in which a CSS var is declared (and its descendants) can access it */
+/* :root {
+    --main-color: red;
+} */
+/* By the above declaration, the CSS variables in the :root selector become global and need not be redeclared */
+/* div {
+    background-color: var(--main-color);
+}
+.random-class-within-html {
+    border-color: var(--main-color);
+} */
+
+/* Using CSS custom properties for making 'themes' (light and dark, in this case) to apply across the whole page */
+:root.dark {
+    --border-btn: 1px solid rgb(220, 220, 220);
+    --color-base-bg: rgb(18, 18, 18);
+    --color-base-text: rgb(240, 240, 240);
+    --color-btn-bg: rgb(36, 36, 36);
+}
+
+:root.light {
+    --border-btn: 1px solid rgb(36, 36, 36);
+    --color-base-bg: rgb(240, 240, 240);
+    --color-base-text: rgb(18, 18, 18);
+    --color-btn-bg: rgb(220, 220, 220);
+}
+
+body,
+.theme-toggle {
+    color: var(--color-base-text);
+}
+
+body {
+    background-color: var(--color-base-bg);
+    padding: 10px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+.theme-toggle {
+    background-color: var(--color-btn-bg);
+    border: var(--border-btn);
+    font-size: 1.125rem;
+    padding: 10px 20px;
+}
+
+.theme-toggle:hover {
+    cursor: pointer;
+}
+
+.theme-toggle:focus {
+    outline: var(--border-btn);
+}
+
+/* Media Queries */
+:root {
+    /* Below is the default theme or light mode, which activates in case the media query doesn't return dark mode */
+    --border-btn: 1px solid rgb(36, 36, 36);
+    --color-base-bg: rgb(240, 240, 240);
+    --color-base-text: rgb(18, 18, 18);
+    --color-btn-bg: rgb(220, 220, 220);
+    --theme-name: "light";
+}
+ /* This checks if user's system theme is dark using @media (prefers-color-scheme: dark), which is a Media Query */
+@media (prefers-color-scheme: dark) {
+    :root {
+      --border-btn: 1px solid rgb(220, 220, 220);
+      --color-base-bg: rgb(18, 18, 18);
+      --color-base-text: rgb(240, 240, 240);
+      --color-btn-bg: rgb(36, 36, 36);
+      --theme-name: "dark";
+    }
+}
