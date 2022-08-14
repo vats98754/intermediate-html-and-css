@@ -23,3 +23,5 @@ function validateForm(e) {
     }
 };
 myform.addEventListener("submit", validateForm);
+// validate contact form
+const contactForm = new FormValidate(document.getElementById('contact'), false); // this validates form AFTER first submit
