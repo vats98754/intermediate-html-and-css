@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="html5-input-types.css">
+    <script src="html5-input-types.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="get">
+        <meter min="0" max="100" value="75" low="33" high="66" optimum="50">75</meter>
+        <progress value="25" max="100">25</progress>
+        <!-- type="email" has some validation to check if email input is in the correct format "a@b" -->
+        <input type="email" id="email" name="email"> <!-- Regex with 'pattern' attribute can be used for further validation -->
+        <!-- FOR MULTIPLE EMAILS <input type="email" id="email" name="email" multiple> -->
+        <!-- For searching on a website -->
+        <input type="search" id="search" name="search">
+        <!-- Telephone numbers, could take larger digits like credit card no.s without slider, displaying keypad on phone -->
+        <input type="tel" id="tel" name="tel">
+        <!-- URL -->
+        <input type="url" id="url" name="url">
+        <!-- Numerical input with range of min to max and scroll wheel steps by 2 -->
+        <input type="number" name="age" id="age" min="1" max="10" step="2">
+        <input type="number" name="change" id="pennies" min="0" max="1" step="0.01">
+        <!-- Slider controls with output displayed using <output> and JS -->
+        <label for="price">Choose a maximum house price: </label>
+        <input type="range" name="price" id="price" min="50000" max="500000" step="100" value="250000">
+        <output class="price-output" for="price"></output>
+        <!-- Date and Time pickers -->
+        <input type="datetime-local" name="datetime" id="datetime">
+        <input type="month" name="month" id="month">
+        <input type="time" name="time" id="time">
+        <input type="week" name="week" id="week">
+        <!-- Constraining date/time values -->
+        <label for="myDate">When are you available this summer?</label>
+        <input type="date" name="myDate" min="2013-06-01" max="2013-08-31" step="7" id="myDate">
+        <!-- Color picker control -->
+        <input type="color" name="color" id="color">
+    </form>
+</body>
+</html>
