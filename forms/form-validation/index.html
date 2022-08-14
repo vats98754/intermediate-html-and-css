@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" method="get" id="myform">
+        <label for="userID">UserID</label>
+        <!-- 'required' keyword at the end of <input> ensures form cannot be submitted if that's empty -->
+        <input type="text" name="userID" id="userID" required>
+        <!-- 'minlength' and 'maxlength' ensures form cannot be submitted if text's char count is outside this range -->
+        <label for="tweet">Tweet</label>
+        <input type="text" name="tweet" id="tweet" minlength="10" maxlength="240">
+        <!-- 'min' and 'max' used for type="number" -->
+        <label for="sat-score">SAT Score:</label>
+        <input type="number" name="sat-score" id="sat-score" min="400" max="1600" step="10">
+        <!-- 'pattern' takes a Regular Expression (Regex) to conform to a given patter, e.g. US postal codes -->
+        <div>
+            <label for="zip_code">Postal / Zip Code:</label>
+            <!-- 'title' in the input tag below is displayed if input doesn't match the requested pattern -->
+            <input type="text" id="zip_code" name="zip_code" pattern="(\d{5}([\-]\d{4})?)" title="Please enter a valid zip code, example: 65251" placeholder="65251" required>
+        </div>
+        <!-- 'url' and 'email' input types don't need 'pattern' as they have built-in validation -->
+        <div>
+            <label for="email">*Email:</label>
+            <input type="email" id="email" name="email" placeholder="joe@mama.com">
+        </div>
+        <div>
+            <label for="website">*Website:</label>
+            <input type="url" id="website" name="website">
+        </div>
+        <!-- File selector -->
+        <label for="passport">Upload Passport photo:</label>
+        <input type="file" name="passport" id="passport" required>
+        <!-- Hidden element, useful for data to be sent with form but not seen by user; e.g. serial number -->
+        <input type="hidden" name="serial">
+        <!-- HTML Output Fields -->
+        <output id="calculation" name="calculation"></output>
+        <progress max="50" value="25">25</progress>
+        <meter value="50" min="25" max="100" low="25" high="100" optimum="60">50</meter>
+        <!-- For credit card numbers -->
+        <label for="credit">Credit Card Number:</label>
+        <!-- The autocomplete attribute allows for convenient input of previously used credit card numbers -->
+        <input type="text" name="ccnum" id="credit" inputmode="numeric" autocomplete="cc-number">
+
+        <!-- Submit button -->
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

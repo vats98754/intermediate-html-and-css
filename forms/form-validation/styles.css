@@ -1,0 +1,21 @@
+input {
+    border: 2px solid #000;
+    margin-bottom: 15px;
+    padding: 5px;
+    border-radius: 5px;
+}
+/* ':invalid' pseudo-class applies itself when input doesn't meet the validation criteria */
+input:invalid {
+    border-color: red;
+}
+input:valid:required {
+    border-color: green;
+}
+/* blue placeholder on email fields */
+input[type="email"]::placeholder {
+    color: blue;
+}
+/* an indeterminate checkbox or radio state, such as when all radio buttons are unchecked */
+input:indeterminate {
+    color: fuchsia;
+}
