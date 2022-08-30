@@ -1,0 +1,17 @@
+.container {
+    display: grid;
+    /* grid-template: 50px 50px / 50px 50px 50px; is the same as below */
+    /* Below is an Explicit Grid, that defines only the first 2 rows and 3 columns */
+    grid-template-rows: 50px 50px;
+    grid-template-columns: 50px 50px 50px;
+    /* Below is an Implicit Grid, that defines the rows and columns beyond the explicit grid's definition */
+    grid-auto-rows: 50px;
+    grid-auto-columns: 50px;
+    /* Gap property */
+    row-gap: 100px;
+    column-gap: 10px;
+}
+
+.container > div {
+    border: 1px solid blue;
+}
