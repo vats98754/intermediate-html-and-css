@@ -1,0 +1,39 @@
+.container {
+  display: inline-grid;
+  grid-template: 40px 40px 40px 40px 40px / 40px 40px 40px 40px 40px;
+  background-color: lightblue;
+  /* Using grid-template-areas places user-defined text-area in a grid; associate each type of element to a grid-area */
+  grid-template-areas:
+    "living-room living-room living-room living-room living-room"
+    "living-room living-room living-room living-room living-room"
+    "bedroom bedroom bathroom kitchen kitchen"
+    "bedroom bedroom bathroom kitchen kitchen"
+    "closet closet . . .";
+  /* Empty spaces on the grid are specified by '.' */
+}
+
+.room {
+  border: 1px solid;
+  font-size: 50%;
+  text-align: center;
+}
+
+#living-room {
+   grid-area:  living-room;
+}
+
+#kitchen {
+  grid-area: kitchen;
+}
+
+#bedroom {
+  grid-area: bedroom;
+}
+
+#bathroom {
+  grid-area: bathroom;
+}
+
+#closet {
+  grid-area: closet;
+}

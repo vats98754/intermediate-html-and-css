@@ -1,0 +1,63 @@
+.container {
+    display: inline-grid; /* inline-grid ensures the container doesn't stretch across the parent width */
+    grid-template: repeat(5, 100px)/ repeat(5, 100px); /* 'repeat(n, x)' makes n explicit rows or columns of size x */
+    background-color: aqua;
+    /* 'row-gap' adds a consistent gutter between each row but not at the edges of the grid */
+    row-gap: 1em;
+    /* 'column-gap' adds a consistent gutter between each column but not at the edges of the grid */
+    column-gap: 20px;
+    /* 'gap: 1em 20px' is the shorthand for the above 2 lines */
+}
+
+.room {
+    border: 1px solid black;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+#living-room {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 6;
+}
+
+#kitchen {
+    grid-row: 3 / 6; /* shorthand for grid-row-start: 1; grid-row-end: 2; */
+    grid-column: 1 / 2; /* shorthand for grid-column-start: 1; grid-column-end: 2; */
+}
+
+#bathroom {
+    /* By default, if a single value is provided for 'grid-row' or 'grid-column', the cell spans a single column or row that follows the mentioned row or col line */
+    grid-row: 5;
+    /* The 'span x' keyword ensures that a cell spans x columns or rows, as below */
+    grid-column: 2 / span 2;
+}
+/* Conventional English CSS flow goes left to right ('inline-start' to 'inline-end') and up to down ('block-start' to 'block-end') */
+#closet {
+    /* Using negative line numbers means reversing the conventional flow and counting from down to up in the case of rows, starting from -1 */
+    grid-row: -4 / -1;
+    /* Using negative line numbers means reversing the conventional flow and counting from right to left in the case of cols, starting from -1 */
+    grid-column: -3 / -1;
+}
+
+/* Below is a shortcut to stretch an item across the entire parent grid container vertically and horizontally, respectively */
+.stretched-item {
+    grid-row: 1 / -1;
+    grid-column: 1 / -1;
+}
+
+/* The 'fr' unit allows you to set the size of a track as a fraction of the free space of the grid container. */
+.thirds-grid {
+    /* The below line divides the columns into thirds */
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#bedroom {
+    grid-area: 3 / 2 / 5 / 4; /* shorthand for grid-row-start: 3; grid-column-start: 2; grid-row-end: 4; grid-column-end: 5; */
+}
+
+/* Most popular CSS Grid trick which creates flexible grids */
+.grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
