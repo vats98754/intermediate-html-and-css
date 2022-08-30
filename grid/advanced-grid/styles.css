@@ -1,0 +1,41 @@
+.grid-container {
+    display: grid;
+    background-color: aquamarine;
+    border: 2px dashed red;
+    overflow: auto;
+    /* Below line allows user to resize both the height and width of the grid by dragging it by its corner */
+    resize: both; /* even though grid can resize to be bigger, it can only be as small as the larger 'min-content'
+        of every child within that grid, which is a very useful CSS property */
+
+    /* if you want to fit as many of a col or row within a given, variable-sized grid, auto-fit and auto-fill can be used within repeat() */
+    grid-template-rows: repeat(2, 1fr); /* Ensures that there's at least 2 rows and implicity ensures each additional row is the same width */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    /* 'auto-fill' mainly differs in case all the col/row elements are accomodated for and accomodates empty cols/rows 
+        rather than expanding existing ones to their max (and shrinking them to their min instead) */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    /* px are static units used to ensure the first 2 column widths can't be resized */
+    /* fr are dynamic units used to ensure the last 3 column widths can be resized and are divided fractionally */
+    
+    /* grid-template: min(200px, 40%) 1fr 2fr / repeat(2, minmax(120px, 200px)) repeat(2, max(150px, 20%)) clamp(150px, 20%, 200px); */
+
+    /* minmax defines the minimum and maximum size a particular column/row can be */
+    gap: 4px;
+    padding: 4px;
+}
+
+.grid-item {
+    background: #444;
+    color: #ddd;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 1.5rem;
+    padding: 12px;
+}
+
+p {
+    margin: 12px auto 24px;
+}
+
+img {
+    height: 60px;
+}
